@@ -15,6 +15,9 @@
 <!-- NIETO -->
 <div class="row text-center">
   <div class="col">
-    <app-nieto [contador]="contador"></app-nieto>
+    <app-nieto
+      [contador]="contador"
+      (cambioContador)="cambioContadorNieto($event)"
+    ></app-nieto>
   </div>
 </div>

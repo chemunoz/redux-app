@@ -21,4 +21,9 @@ export class HijoComponent {
     this.contador /= 2;
     this.cambioContador.emit(this.contador);
   }
+
+  public cambioContadorNieto(contador: number): void {
+    this.contador = contador;
+    this.cambioContador.emit(this.contador);
+  }
 }
