@@ -8,9 +8,8 @@ describe('NietoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NietoComponent ]
-    })
-    .compileComponents();
+      declarations: [NietoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NietoComponent);
     component = fixture.componentInstance;
