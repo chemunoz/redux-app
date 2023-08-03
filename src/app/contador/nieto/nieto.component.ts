@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app-state.interface';
+import { reset } from '../contador.actions';
 
 @Component({
   selector: 'app-nieto',
@@ -6,14 +9,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./nieto.component.scss'],
 })
 export class NietoComponent {
-  @Input()
-  public contador!: number;
+  contador!: number;
 
-  @Output()
-  public cambioContador: EventEmitter<number> = new EventEmitter();
+  constructor(private store: Store<AppState>) {
+    this.store
+      .select('contador')
+      .subscribe((contador) => (this.contador = contador));
+  }
 
   public reset(): void {
-    this.contador = 0;
-    this.cambioContador.emit(this.contador);
+    this.store.dispatch(reset());
   }
 }
